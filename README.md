@@ -1,17 +1,58 @@
-### Hi there 👋
-test
+# VREUD  
+An end-user development tool to simplify the creation of interactive virtual reality scenes. VREUD supports the user in the development of the VR scene, interactions that can be performed by the VR user, and tasks that guide the VR user through the interactive VR scene. VREUD is a web application. Therefore, it contains a client-side and a server-side. The generated interactive VR scenes are stored on the server and can be accessed by the client.
 
-<!--
-**VREUD/VREUD** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## Installation 
+1. Install Nodejs and npm 
+1. Open the folder recast in a console.
+1. Input "npm install" to install the dependencies of the library
+1. Input "npm run build" to build the library.
+1. Open the root folder in the console.
+1. Input "npm install" to install the dependencies of the editor
+1. Input "npm run-script build" to build the client-side of the editor.
 
-Here are some ideas to get you started:
+If you have trouble building the RecastCLI and VREUD, use *--unsafe-perm* on both *npm install* commands.
+The folder **build** will contain the built editor
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Usage
+1. Open the ports for HTTP (80) and HTTPS (443)
+1. Open the server.js file in the root folder and change the variable domain to the wished domain. For example "localhost".
+1. Run the server-side to start the server. This is done by inputting "node server.js" in the root directory.
+1. Access the editor by the configured domain.
+
+## Folder Structure
+* **keys** contains the keys needed for HTTPS.
+* **public** contains the publicly accessible data on the servers-side. All data contained in this folder will be copied in the **build** folder when it is built.
+* **public/interactive-scenes** is used to store the generated interactive VR scenes.
+* **public/models** contains the default models of the VREUD
+* **public/scripts** contains the A-Frame components needed for the execution of the interactive VR scenes
+* **public/uploads** is used to store the uploaded data from the users.
+* **recast** contains the library RecastCLI to build the navigation mesh on the server-side.
+* **src** contains the source code of the client-side.
+* **src/components** contains the React components that implement the interface of the client-side.
+* **src/data** contains the classes that describe the interactive VR scene on the client-side.
+* **src/style** contains the css files of the client-side.
+
+server.js is the implementation  of the server-side.
+
+## Default Models in VREUD
+The default models which are listed in the interface of VREUD can be configured by the XML file *serverModels.xml* in the folder **public**.
+The list can be structured by categories. *Models* has to be the top-level tag.
+The tag *Category* contains the attribute **name** which defines the name of the category. Categories can contain other categories.
+The tag *Model* contains the attributes **name** which defines the name of the entry, **type** which defines the model type (gltf or obj), **url** which defines the loaction of the model file, an optional **material** for obj models, and **autoscale** to automatically scale the model to prevent giant models.
+**Example:**
+```xml
+<Models>
+    <Category name="Furniture">
+        <Model name="couch" type="gltf" url="link to model"></Model>
+        <Category name="Kitchen">
+        <Model name="refrigerator" type="gltf" url="link to model" autoscale="true"></Model>
+        </Category>
+    </Category>
+    <Category name="Plants">
+        <Model name="flowerpot" type="gltf" url="link to obj" material="link to mtl" autoscale="true"></Model>
+    </Category>
+</Models>
+```
+
+
+
