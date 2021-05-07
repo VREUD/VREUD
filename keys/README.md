@@ -1,0 +1,1 @@
+This is a self-generated certificate to use HTTPS on the server. You **should** swap this key and certificate with your key and certificate since this private key is publicly available.  
