@@ -35,10 +35,12 @@ The folder **build** will contain the built editor
 server.js is the implementation  of the server-side.
 
 ## Default Models in VREUD
-The default models which are listed in the interface of VREUD can be configured by the XML file *serverModels.xml* in the folder **public**.
-The list can be structured by categories. *Models* has to be the top-level tag.
-The tag *Category* contains the attribute **name** which defines the name of the category. Categories can contain other categories.
-The tag *Model* contains the attributes **name** which defines the name of the entry, **type** which defines the model type (gltf or obj), **url** which defines the loaction of the model file, an optional **material** for obj models, and **autoscale** to automatically scale the model to prevent giant models.
+The default models which are listed in the interface of VREUD can be configured by the XML file *serverModels.xml* in the folder **public**.  
+The list can be structured by categories. *Models* has to be the top-level tag.  
+The tag *Category* contains the attribute **name** which defines the name of the category. Categories can contain other categories.  
+The tag *Model* contains the attributes **name** which defines the name of the entry, **type** which defines the model type (gltf or obj), **url** which defines the 
+loaction of the model file, an optional **material** for obj models, and **autoscale** to automatically scale the model to prevent giant models.
+
 **Example:**
 ```xml
 <Models>
